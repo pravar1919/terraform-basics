@@ -30,4 +30,12 @@ resource "aws_instance" "demo_instance" {
         user = "ec2-user"
         private_key = "${file("${var.private_key_path}")}"
     }
+
+    output "name" {
+        value = "${aws_instance.demo_instance.public_ip}"
+    }
+
+    output "instnce_arn" {
+        value = "${aws_instance.demo_instance.arn}"
+    }
 }
