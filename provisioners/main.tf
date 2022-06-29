@@ -13,6 +13,9 @@ resource "aws_instance" "demo_instance" {
         Name = "DemoInstance"
     }
 
+    provisioner "local-exec" { # local-exec uses command
+        command = "echo ${aws_instnce.demo_instance.private_ip} > private_ip.txt"
+    }
     provisioner "file" {
         source = "script.sh"
         destination = "destination_to_the_script.sh_file"
