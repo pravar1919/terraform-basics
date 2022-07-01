@@ -1,0 +1,10 @@
+HA infrastructure (highly available)
+- VPC
+- Public Subnet
+- Internet Gateway
+- NACL
+- Security Groups
+- 2 EC2 instance
+- Load Balancer
+- Target Group
+- RDS
