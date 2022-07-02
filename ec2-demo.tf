@@ -1,7 +1,7 @@
 # WhenEver get stuck always use Terraform Documentation
 # ${} is interpollotion syntex
 #variables are provided in vaiable.tf file
-provided "aws" { # either choose access_key or use profile by creating a user and then using cli configure and then give the profile name( recommended method)
+provider "aws" { # either choose access_key or use profile by creating a user and then using cli configure and then give the profile name( recommended method)
     # access_key=""
     # secret_key=""
     profile="${var.profile}"

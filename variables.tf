@@ -1,9 +1,9 @@
 variable "profile" {
-    default = "demo"
+    default = "pravar"
 }
 
 variable "region"{
-    default = "us-east-1"
+    default = "ap-south-1"
 }
 
 # variable "ami-id"{
@@ -11,9 +11,7 @@ variable "region"{
 # }
 
 variable "ami-id"{
-    type = "map"
     default = {
-        us-east-1 = ""
-        us-west-1 = ""
+        ap-south-1 = "ami-08df646e18b182346"
     }
 }
