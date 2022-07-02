@@ -128,8 +128,9 @@ resource "aws_security_group" "abl_security_group" {
 resource "aws_instance" "web-server1" {
     ami = "ami-08df646e18b182346"
     instance_type = "t2.micro"
+    associate_public_ip_address = true
     vpc_security_group_ids = ["${aws_security_group.webserver-sg.id}"]
-    key_name = "gl1"
+    key_name = "gl"
     user_data = "${file("scripts.sh")}"
     subnet_id = "${aws_subnet.public_subnet.id}"
 }
@@ -137,8 +138,9 @@ resource "aws_instance" "web-server1" {
 resource "aws_instance" "web-server2" {
     ami = "ami-08df646e18b182346"
     instance_type = "t2.micro"
+    associate_public_ip_address = true
     vpc_security_group_ids = ["${aws_security_group.webserver-sg.id}"]
-    key_name = "gl1"
+    key_name = "gl"
     user_data = "${file("scripts2.sh")}"
     subnet_id = "${aws_subnet.public_subnet2.id}"
 }
@@ -245,4 +247,8 @@ resource "aws_db_instance" "mysql-db" {
     skip_final_snapshot  = true
     db_subnet_group_name = "${aws_db_subnet_group.mysql-subnet-group.id}"
     vpc_security_group_ids = ["${aws_security_group.mysql-sg.id}"]
+}
+
+output "lb_dns" {
+  value = "${aws_lb.web-lb.dns_name}"
 }
